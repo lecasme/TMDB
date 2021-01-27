@@ -34,17 +34,10 @@ class LandingActivity : AppCompatActivity() {
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(binding.imgBackdropPath)
 
-
-        val textPopularity = "${movie.voteAverage} voted"
-        val textRated =  "${movie.popularity.toInt()} popularity"
-
-        binding.scroll.txtPopularity.text = textPopularity
-        binding.scroll.txtRated.text = textRated
-
-        binding.scroll.txtTitle.text = movie.originalTitle
+        binding.ratingBar.rating = movie.voteAverage.toFloat()/2
+        binding.txtTitle.text = movie.originalTitle
+        binding.txtAverage.text = movie.voteAverage.toString()
         binding.scroll.txtDescription.text = movie.overview
-
-
 
     }
 }

@@ -53,3 +53,8 @@ fun String.dateFormat(): String {
     }
 
 }
+
+fun String.toDate(): Date? {
+    val formatOriginal = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+    return formatOriginal.parse(this)
+}
