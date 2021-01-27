@@ -5,15 +5,14 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
-import android.widget.ImageView
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.tmdb.tv.R
 import com.tmdb.tv.domain.models.Movie
+import com.tmdb.tv.domain.utils.dateFormat
 import com.tmdb.tv.domain.utils.setOnSafeClickListener
 import com.tmdb.tv.presentation.features.home.HomeActivity
 import com.tmdb.tv.presentation.features.landing.LandingActivity
@@ -31,7 +30,9 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.imgMovie)
-        val cardView: CardView = view.findViewById(R.id.cardView)
+        val card: LinearLayout = view.findViewById(R.id.card)
+        val textTitle: TextView = view.findViewById(R.id.txtTitle)
+        val textYear: TextView = view.findViewById(R.id.txtYear)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder  {
@@ -57,11 +58,14 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(viewHolder.imageView)
 
-        viewHolder.cardView.setOnSafeClickListener {
+        viewHolder.card.setOnSafeClickListener {
             val intent = Intent(context, LandingActivity::class.java)
             intent.putExtra("movie", movie)
             context.startActivity(intent)
         }
+
+        viewHolder.textTitle.text = movie.originalTitle
+        viewHolder.textYear.text = movie.releaseDate.dateFormat()
 
     }
 

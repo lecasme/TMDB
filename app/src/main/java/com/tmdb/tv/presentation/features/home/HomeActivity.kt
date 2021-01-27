@@ -40,7 +40,7 @@ class HomeActivity : AppCompatActivity() {
             if(it.isNotEmpty()){
                 movieAdapter = MovieAdapter(it)
                 binding.rcvMovies.apply {
-                    layoutManager = GridLayoutManager(context, 2)
+                    layoutManager = GridLayoutManager(context, 3)
                     adapter = movieAdapter
                 }
                 binding.iconSwitch.visibility = View.VISIBLE
