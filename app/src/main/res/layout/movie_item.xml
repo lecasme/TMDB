@@ -16,6 +16,7 @@
         android:layout_width="match_parent">
 
         <ImageView
+            android:transitionName="posterTransition"
             android:scaleType="fitXY"
             android:id="@+id/imgMovie"
             android:layout_width="match_parent"
@@ -38,6 +39,7 @@
             android:textSize="15dp"
             android:textColor="@color/white"
             android:layout_width="match_parent"
+            android:transitionName="nameTransition"
             android:layout_height="wrap_content">
         </TextView>
 
@@ -46,6 +48,7 @@
             android:id="@+id/txtYear"
             android:ellipsize="end"
             android:singleLine="true"
+            android:transitionName="infoTransition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>

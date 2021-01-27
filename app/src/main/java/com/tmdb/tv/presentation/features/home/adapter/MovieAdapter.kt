@@ -1,12 +1,13 @@
 package com.tmdb.tv.presentation.features.home.adapter
 
+import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -14,10 +15,10 @@ import com.tmdb.tv.R
 import com.tmdb.tv.domain.models.Movie
 import com.tmdb.tv.domain.utils.dateFormat
 import com.tmdb.tv.domain.utils.setOnSafeClickListener
-import com.tmdb.tv.presentation.features.home.HomeActivity
 import com.tmdb.tv.presentation.features.landing.LandingActivity
 import java.util.*
 import kotlin.collections.ArrayList
+import android.util.Pair
 
 class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>(), Filterable {
 
@@ -60,8 +61,11 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
 
         viewHolder.card.setOnSafeClickListener {
             val intent = Intent(context, LandingActivity::class.java)
+            val options = ActivityOptions.makeSceneTransitionAnimation(context as Activity,
+                Pair.create(viewHolder.textTitle, "nameTransition"),
+                Pair.create(viewHolder.textYear, "infoTransition"))
             intent.putExtra("movie", movie)
-            context.startActivity(intent)
+            context.startActivity(intent, options.toBundle())
         }
 
         viewHolder.textTitle.text = movie.originalTitle

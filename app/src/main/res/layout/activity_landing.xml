@@ -19,6 +19,7 @@
 
             <ImageView
                 android:scaleType="centerCrop"
+                android:transitionName="posterTransition"
                 android:id="@+id/imgBackdropPath"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
@@ -29,7 +30,7 @@
                 android:gravity="center"
                 android:layout_gravity="bottom"
                 android:layout_width="match_parent"
-                android:layout_height="70dp">
+                android:layout_height="80dp">
 
                 <TextView
                     android:id="@+id/txtTitle"
@@ -37,9 +38,20 @@
                     android:textSize="30sp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
+                    android:transitionName="nameTransition"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txtInfo"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:transitionName="infoTransition"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"

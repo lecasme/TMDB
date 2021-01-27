@@ -19,9 +19,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.status.observe(this, {
-            //val options = ActivityOptions.makeSceneTransitionAnimation(this, Pair.create(binding.imgLogo, "logoTransition"))
             val intent = Intent(this, HomeActivity::class.java)
-            //startActivity(intent, options.toBundle())
             startActivity(intent)
             finish()
         })
