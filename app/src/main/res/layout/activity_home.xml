@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tmdb.tv.presentation.features.home.HomeViewModel" />
+
+        <variable
+            name="onTextChanged"
+            type="androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:orientation="vertical"
+        tools:context=".presentation.features.home.HomeActivity">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/logo"
+                    android:layout_width="80dp"
+                    android:transitionName="logoTransition"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center|right"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.polyak.iconswitch.IconSwitch
+                    app:isw_icon_left = "@drawable/popularity"
+                    app:isw_icon_right = "@drawable/rated"
+                    app:isw_background_color = "#ffdd0a"
+                    app:isw_thumb_color_left = "#fe6f78"
+                    app:isw_thumb_color_right = "#fe6f78"
+                    app:isw_inactive_tint_icon_left = "#100A0A"
+                    app:isw_inactive_tint_icon_right = "#100A0A"
+                    app:isw_active_tint_icon_left = "#FFFFFF"
+                    app:isw_active_tint_icon_right = "#FFFFFF"
+                    android:id = "@+id/iconSwitch"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "wrap_content"
+                    app:isw_default_selection = "left"
+                    app:isw_icon_size = "20dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:visibility="gone"
+                android:gravity="center"
+                android:id="@+id/lnlHolder"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/popcorn"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"/>
+
+                <TextView
+                    android:textAlignment="center"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:text="Aun no se han podido cargar peliculaas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/containedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:text="Intentar de nuevo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/lnlMovie"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/magnifier"
+                    android:hint="Buscar pelicula">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtMovie"
+                        android:onTextChanged="@{onTextChanged}"
+                        android:background="@color/light_grey"
+                        android:singleLine="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="16dp"
+                    android:id="@+id/rcvMovies"
+                    android:elevation="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>
