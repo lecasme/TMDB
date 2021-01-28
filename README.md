@@ -1,4 +1,5 @@
-# Android MVVM
+
+![Splash](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/logo.png?raw=true)
 
 MVVM Android Pattern + Live Data + View Binding + Data Binding + Koin + Room + Retrofit 
 
@@ -50,11 +51,11 @@ Muestra todo el detalle de la pelicula seleccionada, asi como que el trailer que
 
 ## Screenshots
 
-![Splash Screen](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/splash.png?raw=true)
-![Splash Screen](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/offline.png?raw=true)
-![Splash Screen](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/home.png?raw=true)
-![Splash Screen](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/sorted.png?raw=true)
-![Splash Screen](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/filtered.png?raw=true)
-![Splash Screen](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/landing.png?raw=true)
+![Splash](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/splash.jpg?raw=true)
+![Offline](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/offline.jpg?raw=true)
+![Home](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/home.jpg?raw=true)
+![Sorted](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/sorted.jpg?raw=true)
+![Filtered](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/filtered.jpg?raw=true)
+![Landing](https://raw.githubusercontent.com/lecasme/RappiTV/master/app/screenshots/landing.jpg?raw=true)
 
 
