@@ -50,6 +50,7 @@
                 android:layout_height="match_parent">
 
                 <com.polyak.iconswitch.IconSwitch
+                    android:visibility="gone"
                     app:isw_icon_left = "@drawable/popularity"
                     app:isw_icon_right = "@drawable/rated"
                     app:isw_background_color = "#ffdd0a"
@@ -74,7 +75,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:visibility="visible"
+                android:visibility="gone"
                 android:gravity="center"
                 android:id="@+id/lnlHolder"
                 android:orientation="vertical"
@@ -104,7 +105,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:id="@+id/lnlMovie"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -115,13 +116,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:startIconDrawable="@drawable/magnifier"
+                    app:endIconTint="@color/white"
                     android:hint="Buscar pelicula">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtMovie"
                         android:onTextChanged="@{onTextChanged}"
-                        android:background="@color/light_grey"
+                        android:background="@color/grey_dark_transparent"
                         android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/light_grey"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 

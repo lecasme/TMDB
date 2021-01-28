@@ -42,6 +42,10 @@
                 android:layout_height="100dp">
 
                 <TextView
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:id="@+id/txtTitle"
                     android:textColor="@color/white"
                     android:textSize="30sp"
@@ -52,6 +56,8 @@
 
                 <TextView
                     android:id="@+id/txtInfo"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textColor="@color/grey_dark"
                     android:textSize="15sp"
                     android:textStyle="bold"

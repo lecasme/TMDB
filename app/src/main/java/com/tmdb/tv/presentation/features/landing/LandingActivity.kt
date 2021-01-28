@@ -54,6 +54,7 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
         // Podria evitarse esto no teniendo el reproductor en la misma actividad o si el id del video volviese en el detalle de las peliculas
 
         GlobalScope.launch(Dispatchers.IO) {
+            delay(1000)
             useCase.fetchVideos(movie.id).let { data ->
                 GlobalScope.launch(Dispatchers.Main) {
                     val videos = data.value as List<Video>
@@ -76,8 +77,8 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
     override fun onInitializationSuccess(provider: YouTubePlayer.Provider?, youTubePlayer: YouTubePlayer?, b: Boolean) {
         if(!b){
             player = youTubePlayer
-            youTubePlayer?.loadVideo(videoKey)
-            youTubePlayer?.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT)
+            player?.loadVideo(videoKey)
+            player?.setPlayerStyle(YouTubePlayer.PlayerStyle.MINIMAL)
         }
     }
 
