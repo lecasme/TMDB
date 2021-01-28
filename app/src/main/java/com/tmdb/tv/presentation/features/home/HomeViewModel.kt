@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.ViewModel
 import com.tmdb.tv.domain.models.Movie
 import com.tmdb.tv.domain.usecases.HomeUseCase
+import com.tmdb.tv.domain.utils.LIST
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val homeUseCase: HomeUseCase) : ViewModel() {
@@ -24,9 +25,8 @@ class HomeViewModel(private val homeUseCase: HomeUseCase) : ViewModel() {
     }
 
     fun fetchMovies() = viewModelScope.launch {
-        _movies.addSource(homeUseCase.getMovies()){
-            _movies.value = it
-        }
+        homeUseCase.fetchMovies(LIST)
+        _movies.value = homeUseCase.getMovies().value
     }
 
 }

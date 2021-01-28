@@ -1,24 +1,25 @@
 package com.tmdb.tv.presentation.features.home.adapter
 
+import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
-import android.widget.ImageView
-import androidx.cardview.widget.CardView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.tmdb.tv.R
 import com.tmdb.tv.domain.models.Movie
+import com.tmdb.tv.domain.utils.dateFormat
 import com.tmdb.tv.domain.utils.setOnSafeClickListener
-import com.tmdb.tv.presentation.features.home.HomeActivity
 import com.tmdb.tv.presentation.features.landing.LandingActivity
 import java.util.*
 import kotlin.collections.ArrayList
+import android.util.Pair
+import com.tmdb.tv.domain.utils.API_IMG_URL
 
 class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>(), Filterable {
 
@@ -31,7 +32,9 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.imgMovie)
-        val cardView: CardView = view.findViewById(R.id.cardView)
+        val card: LinearLayout = view.findViewById(R.id.card)
+        val textTitle: TextView = view.findViewById(R.id.txtTitle)
+        val textYear: TextView = view.findViewById(R.id.txtYear)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder  {
@@ -54,23 +57,25 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
             .with(context)
             .load("$API_IMG_URL${movie.posterPath}")
             .placeholder(R.drawable.holder)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(viewHolder.imageView)
 
-        viewHolder.cardView.setOnSafeClickListener {
+        viewHolder.card.setOnSafeClickListener {
             val intent = Intent(context, LandingActivity::class.java)
+            val options = ActivityOptions.makeSceneTransitionAnimation(context as Activity,
+                Pair.create(viewHolder.textTitle, "nameTransition"),
+                Pair.create(viewHolder.textYear, "infoTransition"))
             intent.putExtra("movie", movie)
-            context.startActivity(intent)
+            context.startActivity(intent, options.toBundle())
         }
+
+        viewHolder.textTitle.text = movie.originalTitle
+        viewHolder.textYear.text = movie.releaseDate.dateFormat()
 
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = copiedMovies.size
-
-    companion object{
-        const val API_IMG_URL = "https://image.tmdb.org/t/p/w500"
-    }
 
     override fun getFilter(): Filter {
         return object : Filter() {
