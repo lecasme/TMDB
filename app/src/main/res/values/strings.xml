@@ -5,7 +5,7 @@
     <string name="home_no_internet">Oh no! No internet connection found :(</string>
     <string name="home_retry">Try again</string>
     <string name="home_search">Search movies</string>
-    <string name="home_not_loaded">No movies have been loaded yet</string>
+    <string name="home_not_loaded">You must connect at least once to the internet</string>
     <string name="landing_suitable">Suitable for all ages</string>
     <string name="landing_no_suitable">Ages 18+</string>
     <string name="landing_votes">votes</string>
