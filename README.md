@@ -37,6 +37,7 @@ Muestra todo el detalle de la pelicula seleccionada, asi como que el trailer que
 - Verificar el estado de la conexion mediante un broadcast, de ese modo al momento de recuperar la conexion si no se tienen peliculas cargadas, las cargara inmediantamente
 - Implementar navigation de android Jetpack creando el graph que tiene las rutas.
 - Añadir pantalla de favoritos usando las apis de [themoviedb](https://developers.themoviedb.org/), se debe implementar el post que guarda la pelicula y el get de los favoritos del usuario siguiendo el patron.
+- Place holder para el landing cuando esta en offline.
 - Mejorar un poco la transicion quizas es demasiado rapida.
 - Test Unitarios mas complejos o mejor enfocados.
 

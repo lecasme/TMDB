@@ -38,7 +38,7 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
         Glide
             .with(this)
             .load("$API_IMG_URL${movie.backdropPath}")
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(binding.imgBackdropPath)
 
         binding.ratingBar.rating = movie.voteAverage.toFloat()/2
