@@ -12,20 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 
-
         <item name="android:windowBackground">@color/grey_background</item>
 
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowDisablePreview">true</item>
-        <!-- Customize your theme here. -->
-        <!-- specify enter and exit transitions -->
-
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
 
     </style>
 
-    <style name="Theme.RappiTV.NoActionBar">
+    <style name="Theme.RappiTV.NoActionBar" parent="Theme.RappiTV">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

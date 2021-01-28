@@ -47,8 +47,12 @@ class MovieRepositoryImpl(private val movieRemoteDataSource: MovieRemoteDataSour
     }
 
     override suspend fun fetchVideos(movieId: Int): LiveData<List<Video>> {
-        val response = movieRemoteDataSource.fetchVideos(movieId)
-        resultVideo.postValue(response.results)
+        if(connectivity.isOnline()) {
+            val response = movieRemoteDataSource.fetchVideos(movieId)
+            resultVideo.postValue(response.results)
+        }else{
+            resultVideo.postValue(emptyList())
+        }
         return resultVideo
     }
 
