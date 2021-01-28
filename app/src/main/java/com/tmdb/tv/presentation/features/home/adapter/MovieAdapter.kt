@@ -56,7 +56,7 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
             .with(context)
             .load("$API_IMG_URL${movie.posterPath}")
             .placeholder(R.drawable.holder)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(viewHolder.imageView)
 
         viewHolder.card.setOnSafeClickListener {

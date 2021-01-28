@@ -23,6 +23,7 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
     private val useCase: LandingUseCase by inject()
     private var videoKey: String? = null
     lateinit var binding: ActivityLandingBinding
+    private var player: YouTubePlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,7 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
         binding.txtTitle.text = movie.originalTitle
         binding.txtAverage.text = movie.voteAverage.toString()
         binding.scroll.txtDescription.text = movie.overview
+        binding.imgBack.setOnClickListener { onBackPressed() }
 
         val adult = if (movie.adult) "Todos los publicos" else "Mayores de 18"
         val information = " $adult ● ${movie.releaseDate.dateFormat()} ● ${movie.voteCount} votes"
@@ -66,12 +68,14 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
 
     }
 
-    companion object{
-        const val YOUTUBE_KEY = "AIzaSyDXMDNgSyNeM5lhDxIJUM1GIb46cWyBUuM"
+    override fun onBackPressed() {
+        super.onBackPressed()
+        player?.release()
     }
 
     override fun onInitializationSuccess(provider: YouTubePlayer.Provider?, youTubePlayer: YouTubePlayer?, b: Boolean) {
         if(!b){
+            player = youTubePlayer
             youTubePlayer?.loadVideo(videoKey)
             youTubePlayer?.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT)
         }
@@ -80,5 +84,10 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
     override fun onInitializationFailure(provider: YouTubePlayer.Provider?, result: YouTubeInitializationResult?) {
         Log.e("Youtube", "Load Failure")
     }
+
+    companion object{
+        const val YOUTUBE_KEY = "AIzaSyDXMDNgSyNeM5lhDxIJUM1GIb46cWyBUuM"
+    }
+
 
 }
