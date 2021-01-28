@@ -38,6 +38,7 @@ Muestra todo el detalle de la pelicula seleccionada, asi como que el trailer que
 - Implementar navigation de android Jetpack creando el graph que tiene las rutas.
 - Añadir pantalla de favoritos usando las apis de [themoviedb](https://developers.themoviedb.org/), se debe implementar el post que guarda la pelicula y el get de los favoritos del usuario siguiendo el patron.
 - Mejorar un poco la transicion quizas es demasiado rapida.
+- Test Unitarios mas complejos o mejor enfocados.
 
 
 ## Deuda Tecnica
