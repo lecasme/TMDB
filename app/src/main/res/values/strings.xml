@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RappiTV</string>
+    <string name="app_name">TMDB</string>
     <string name="action_settings">Settings</string>
     <string name="home_loading">Loading movies..</string>
     <string name="home_no_internet">Oh no! No internet connection found :(</string>

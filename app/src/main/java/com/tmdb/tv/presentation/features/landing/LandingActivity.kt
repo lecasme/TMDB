@@ -90,7 +90,7 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
     }
 
     companion object{
-        const val YOUTUBE_KEY = "AIzaSyDXMDNgSyNeM5lhDxIJUM1GIb46cWyBUuM"
+        const val YOUTUBE_KEY = "YOUR_YOUTUBE_API_KEY"
     }
 
 
