@@ -41,7 +41,7 @@
 
                     <ImageView
                         android:src="@drawable/logo"
-                        android:layout_width="80dp"
+                        android:layout_width="100dp"
                         android:transitionName="logoTransition"
                         android:layout_height="wrap_content"/>
 
