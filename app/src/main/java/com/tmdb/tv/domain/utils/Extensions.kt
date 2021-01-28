@@ -35,6 +35,12 @@ fun View.setOnSafeClickListener(onSafeClick: (View) -> Unit) {
     })
 }
 
+fun View.setOnSafeClickListener(interval: Int, onSafeClick: (View) -> Unit) {
+    setOnClickListener(SafeClickListener(interval) { v ->
+        onSafeClick(v)
+    })
+}
+
 fun String.dateFormat(): String {
 
     var newDate = this
