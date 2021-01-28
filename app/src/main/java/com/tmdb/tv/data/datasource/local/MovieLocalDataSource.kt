@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 
 interface MovieLocalDataSource {
     suspend fun selectMovies(): List<MovieEntity>
-    suspend fun insertMovies(pokemons : List<MovieEntity>)
+    suspend fun insertMovies(movies : List<MovieEntity>)
 }
 
 class MovieLocalDataSourceImpl(
