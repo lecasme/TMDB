@@ -119,8 +119,10 @@
                         android:id="@+id/textField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColorHint="@color/light_grey"
+                        app:boxStrokeColor="@color/light_grey"
                         app:startIconDrawable="@drawable/magnifier"
-                        app:endIconTint="@color/white"
+                        app:startIconTint="@color/light_grey"
                         android:hint="@string/home_search">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -128,8 +130,11 @@
                             android:onTextChanged="@{onTextChanged}"
                             android:background="@color/grey_dark_transparent"
                             android:singleLine="true"
-                            android:textColor="@color/white"
+                            android:textColor="@color/light_grey"
                             android:textColorHint="@color/light_grey"
+                            android:textColorLink="@color/light_grey"
+                            android:textColorHighlight="@color/light_grey"
+                            android:shadowColor="@color/light_grey"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
