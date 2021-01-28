@@ -48,7 +48,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:gravity="center|right"
+                    android:gravity="center|end"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -57,13 +57,13 @@
                         android:visibility="gone"
                         app:isw_icon_left = "@drawable/popularity"
                         app:isw_icon_right = "@drawable/rated"
-                        app:isw_background_color = "#ffdd0a"
-                        app:isw_thumb_color_left = "#fe6f78"
-                        app:isw_thumb_color_right = "#fe6f78"
-                        app:isw_inactive_tint_icon_left = "#100A0A"
-                        app:isw_inactive_tint_icon_right = "#100A0A"
-                        app:isw_active_tint_icon_left = "#FFFFFF"
-                        app:isw_active_tint_icon_right = "#FFFFFF"
+                        app:isw_background_color = "@color/teal_200"
+                        app:isw_thumb_color_left = "@color/purple_200"
+                        app:isw_thumb_color_right = "@color/purple_200"
+                        app:isw_inactive_tint_icon_left = "@color/black"
+                        app:isw_inactive_tint_icon_right = "@color/black"
+                        app:isw_active_tint_icon_left = "@color/white"
+                        app:isw_active_tint_icon_right = "@color/white"
                         android:id = "@+id/iconSwitch"
                         android:layout_width = "wrap_content"
                         android:layout_height = "wrap_content"
@@ -96,7 +96,7 @@
                         android:layout_margin="10dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:text="Aun no se han podido cargar peliculas"
+                        android:text="@string/home_not_loaded"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -104,7 +104,7 @@
                         android:id="@+id/btnRetry"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:text="Intentar de nuevo" />
+                        android:text="@string/home_retry" />
 
                 </LinearLayout>
 
@@ -121,7 +121,7 @@
                         android:layout_height="wrap_content"
                         app:startIconDrawable="@drawable/magnifier"
                         app:endIconTint="@color/white"
-                        android:hint="Buscar pelicula">
+                        android:hint="@string/home_search">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtMovie"

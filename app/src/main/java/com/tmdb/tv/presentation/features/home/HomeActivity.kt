@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.polyak.iconswitch.IconSwitch.Checked
+import com.tmdb.tv.R
 import com.tmdb.tv.databinding.ActivityHomeBinding
 import com.tmdb.tv.domain.utils.Connectivity
 import com.tmdb.tv.domain.utils.setOnSafeClickListener
@@ -41,10 +42,10 @@ class HomeActivity : AppCompatActivity() {
 
         binding.btnRetry.setOnSafeClickListener(5000) {
             if(connectivity.isOnline()){
-                Snackbar.make(binding.coordinator, "Buscando peliculas...", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.coordinator, R.string.home_loading, Snackbar.LENGTH_LONG).show()
                 viewModel.fetchMovies()
             }else{
-               Snackbar.make(binding.coordinator, "Oh no! No estás conectado al red :(", Snackbar.LENGTH_LONG).show()
+               Snackbar.make(binding.coordinator, R.string.home_no_internet, Snackbar.LENGTH_LONG).show()
             }
         }
 

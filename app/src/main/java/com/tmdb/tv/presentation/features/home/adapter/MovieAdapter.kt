@@ -19,6 +19,7 @@ import com.tmdb.tv.presentation.features.landing.LandingActivity
 import java.util.*
 import kotlin.collections.ArrayList
 import android.util.Pair
+import com.tmdb.tv.domain.utils.API_IMG_URL
 
 class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>(), Filterable {
 
@@ -75,10 +76,6 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = copiedMovies.size
-
-    companion object{
-        const val API_IMG_URL = "https://image.tmdb.org/t/p/w500"
-    }
 
     override fun getFilter(): Filter {
         return object : Filter() {

@@ -8,10 +8,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
+import com.tmdb.tv.R
 import com.tmdb.tv.databinding.ActivityLandingBinding
 import com.tmdb.tv.domain.models.Movie
 import com.tmdb.tv.domain.models.Video
 import com.tmdb.tv.domain.usecases.LandingUseCase
+import com.tmdb.tv.domain.utils.API_IMG_URL
 import com.tmdb.tv.domain.utils.dateFormat
 import com.tmdb.tv.presentation.features.home.adapter.MovieAdapter
 import kotlinx.coroutines.launch
@@ -35,7 +37,7 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
 
         Glide
             .with(this)
-            .load("${MovieAdapter.API_IMG_URL}${movie.backdropPath}")
+            .load("$API_IMG_URL${movie.backdropPath}")
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(binding.imgBackdropPath)
 
@@ -45,9 +47,10 @@ class LandingActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
         binding.scroll.txtDescription.text = movie.overview
         binding.imgBack.setOnClickListener { onBackPressed() }
 
-        val adult = if (movie.adult) "Todos los publicos" else "Mayores de 18"
-        val information = " $adult ● ${movie.releaseDate.dateFormat()} ● ${movie.voteCount} votes"
+        val adult = if (movie.adult) resources.getString(R.string.landing_no_suitable) else resources.getString(R.string.landing_suitable)
+        val information = " $adult ● ${movie.releaseDate.dateFormat()} ● ${movie.voteCount} ${resources.getString(R.string.landing_votes)}"
         binding.txtInfo.text = information
+
 
         // YouTubeBaseActivity no extiende de AppCompatActivity por lo que no se puede hacer uso del viewModel y se llamo directamente al caso de uso
         // YouTubePlayerView requiere trabajar con YouTubeBaseActivity
