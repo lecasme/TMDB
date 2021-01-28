@@ -13,16 +13,16 @@ interface MovieLocalDataSource {
 }
 
 class MovieLocalDataSourceImpl(
-    private val pokemonDao: MoviesDao,
+    private val moviesDao: MoviesDao,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : MovieLocalDataSource {
 
     override suspend fun selectMovies(): List<MovieEntity> = withContext(ioDispatcher) {
-        pokemonDao.selectMovies()
+        moviesDao.selectMovies()
     }
 
     override suspend fun insertMovies(movies : List<MovieEntity>): Unit = withContext(ioDispatcher) {
-        pokemonDao.insertMovies(movies)
+        moviesDao.insertMovies(movies)
     }
 
 }
